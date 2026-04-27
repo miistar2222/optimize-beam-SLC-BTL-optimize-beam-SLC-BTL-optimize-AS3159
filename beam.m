@@ -4,16 +4,17 @@ clc; clear all; close all;
 %% Định nghĩa bài toán
 CostFunction = @(x) cost_welded_beam(x); % Trỏ đến hàm dầm hàn vừa tạo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-NumberofFunctionEvaluation = 50000;
+NumberofFunctionEvaluation = 50000; % số lần đánh giá tối đa
 nVar = 4;                           % Dầm hàn có 4 biến: h, l, t, b
 
-nTeam = 5;                          % Số đội bóng
-nMainPlayer = 10;                   % Số cầu thủ đá chính (vì nVar=4 nhỏ nên ta fix ở 10)
-nReservePlayer = 10;                % Số cầu thủ dự bị
+% --- THIẾT LẬP CHUẨN WORLD CUP ---
+nTeam = 32;                         % 32 đội bóng tham dự vòng chung kết
+nMainPlayer = 11;                   % 11 cầu thủ đá chính trên sân
+nReservePlayer = 15;                % 15 cầu thủ dự bị 
 
 % Giới hạn của biến [h, l, t, b]
-VarMin = [0.1, 0.1, 0.1, 0.1];      % Giới hạn dưới của biến
-VarMax = [2.0, 10.0, 10.0, 2.0];    % Giới hạn trên của biến
+VarMin = [0.1, 0.1, 0.1, 0.1];      
+VarMax = [2.0, 10.0, 10.0, 2.0];    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 addpath('example');
 addpath('SLC');
